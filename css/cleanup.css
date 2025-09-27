@@ -1,1 +1,30 @@
 /* write your override styles here */
+/* css/cleanup.css
+   Hide the graffiti tags by using a selector more specific than the original rules.
+   Avoid !important and avoid touching the HTML.
+*/
+
+/* Hide normal tag elements */
+#wall .tag-1,
+#wall .tag-2,
+#wall .tag-3,
+#wall .tag-4,
+#wall .tag-5,
+#wall .tag-6,
+#wall .tag-7 {
+  display: none;
+}
+
+/* If a tag is created using a pseudo-element (e.g. .tag-4::before),
+   also target the pseudo-element to be safe */
+#wall .tag-1::before,
+#wall .tag-2::before,
+#wall .tag-3::before,
+#wall .tag-4::before,
+#wall .tag-5::before,
+#wall .tag-6::before,
+#wall .tag-7::before {
+  display: none;
+  background: none; /* extra precaution */
+  content: "";      /* ensure pseudo-element has no content */
+}
